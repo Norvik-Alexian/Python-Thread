@@ -110,3 +110,38 @@ Non-reentrant code (if 2 concurrent threads will access val, the result will be 
 BoundedSemaphore also checks if the counter values is not greater than specified value.
 
 ## Condition Variable
+* Condition Variable is a kind of Event used for signaling between two or more threads.
+* One or more thread can wait on it to get signaled before trying to run some code.
+* Condition variable uses mutex (Lock or RLock)
+
+## Event
+* Event object is considered or recommended as the simplest communication process or system between any threads. This system
+works on two conditions where the Event object is Enabled means set() or disabled clear().
+* wait() - thread waits until the execution of the set() method is not done.
+
+## Condition Variable VS Event
+* Condition can be used when threads are intrested in waiting for something to become true, and once it's true, to have
+exclusive access to some shared resource.
+* Event can be used when threads are just interested in waiting for something to become true.
+* Condition is an abstracted `Event + Lock`, but it gets more intresting when you consider that you can have several 
+different Conditions over the same underlying lock. Thus, you could have different Conditions describing the state of the 
+underlying resource meaning you can wake workers that are only interested in particular states of the shared resource.
+
+## Timer
+* the timer is subclass of Thread. Timer class represents an action that should be run only after a certain amount of time 
+has passed. A Timer starts its work after a delay and can be canceled at any point within that delay time period.
+* Timers are started, as with threads, by calling their start() method. The timer can be stopped by calling the cancel()
+method. The interval the timer will wait before executing its action may not be exactly the same as the interval specified 
+by the user.
+
+## Barrier
+* Barrier objects in Python are used to wait for a fixed number of thread to complete execution before any particular thread
+can proceed forward with the execution of the program.
+* Each thread calls wait() function upon reaching the barrier.
+* If this number goes beyond the number of threads for which the barrier was initialized with, then all the threads waiting
+are simultaneously released.
+* Generally, a barrier is used to combine the output of threads.
+* The barrier sets up a count of threads that will wait together until that count is reached.
+
+## Threading Pool
+* Module concurrent introduced in Python 3.2 for more advanced parallel programming
