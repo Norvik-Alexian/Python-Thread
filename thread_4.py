@@ -14,5 +14,6 @@ def print_current_second():
 
 thread1 = Thread(target=perform)
 thread2 = Thread(target=print_current_second)
+
 thread1.start()
 thread2.start()
